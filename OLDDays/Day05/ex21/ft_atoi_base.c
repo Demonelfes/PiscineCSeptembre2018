@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 15:37:43 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/04 16:33:57 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/03 12:01:19 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/04 16:34:22 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-void	ft_putchar(char c);
 
 int		check_base(char *base)
 {
@@ -31,30 +29,49 @@ int		check_base(char *base)
 	return (len);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+int		pos_base(char *base, char c)
 {
+	int		i;
+
+	i = 0;
+	while (base[i])
+	{
+		if (base[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+int		ft_atoi_base(char *str, char *base)
+{
+	int		i;
+	int		neg;
+	int		result;
 	int		base_n;
 
+	i = 0;
+	neg = 0;
+	result = 0;
 	base_n = check_base(base);
-	if (base_n >= 2)
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+		neg = 1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (pos_base(base, str[i]) != -1)
 	{
-		if (nbr == -2147483648)
-		{
-			ft_putchar('-');
-			ft_putnbr_base(-1 * (nbr / base_n), base);
-			ft_putchar(base[-1 * (nbr % base_n)]);
-		}
-		else if (nbr < 0)
-		{
-			ft_putchar('-');
-			ft_putnbr_base(-nbr, base);
-		}
-		else if (nbr >= base_n)
-		{
-			ft_putnbr_base(nbr / base_n, base);
-			ft_putnbr_base(nbr % base_n, base);
-		}
-		else
-			ft_putchar(base[nbr]);
+		result = (result * base_n) + pos_base(base, str[i]);
+		i++;
 	}
+	if (str[i])
+		return (0);
+	return (neg == 1 ? -result : result);
+}
+
+int		main(int ac, char **av)
+{
+	(void)ac;
+	printf("%d\n", ft_atoi_base(av[1], av[2]));
 }

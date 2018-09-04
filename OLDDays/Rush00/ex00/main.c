@@ -6,14 +6,17 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 00:26:27 by allopez           #+#    #+#             */
-/*   Updated: 2018/08/31 00:37:20 by allopez          ###   ########.fr       */
+/*   Updated: 2018/09/04 11:31:45 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void	ft_putchar(char c);
 void	rush(int x, int y);
 
 int		main(void)
 {
-	rush(5, 5);
+	rush(5, 3);
+	ft_putchar('\n');
+	rush(3, 5);
 	return (0);
 }

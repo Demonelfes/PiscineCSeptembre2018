@@ -5,33 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 15:20:36 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/02 15:35:11 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/03 19:01:33 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/03 19:10:06 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+unsigned int  ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int		i;
+	unsigned int i;
+	unsigned int j;
 
 	i = 0;
-	while (str[i])
+	j = 0;
+	while (src[i])
 		i++;
-	return (i);
-}
-
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
-{
-	int		i;
-	char	*cat_dest;
-
-	i = 0;
-	cat_dest = dest + ft_strlen(dest);
-	while (src[i] && i <= size)
+	while (dest[j]  && j < size)
 	{
-		cat_dest[i] = src[i];
-		i++;
+		dest[j] = src[i + j];
+		j++;
 	}
-	cat_dest[i] = '\0';
-	return (dest);
+	while (dest[j])
+	{
+		dest[j] = '\0';
+		j++;
+	}
+	return (i);
 }

@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 03:28:55 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/04 16:31:28 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/04 11:16:39 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/04 16:36:22 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_alpha(char *str)
+void	ft_putnbr_hex(int nbr)
 {
-	int		i;
+	char	*base;
 
-	i = 0;
-	while ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
-		i++;
-	if (str[i] != '\0')
-		return (0);
-	return (1);
+	base = "0123456789abcdef";
+		if (nbr >= base_n)
+		{
+			ft_putnbr_hex(nbr / base);
+			ft_putnbr_hex(nbr % base);
+		}
+		else
+			ft_putchar(base[nbr]);
+}
+
+void	*ft_print_memory(char *addr, unsigned int size)
+{
+	int		addr_mem;
+
+	addr_mem = 0;
+
+	while (addr[addr_mem])
 }
