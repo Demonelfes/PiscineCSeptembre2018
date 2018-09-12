@@ -6,16 +6,28 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 00:23:40 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/02 00:37:35 by allopez          ###   ########.fr       */
+/*   Updated: 2018/09/12 15:20:23 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_strcmp(char *s1, char *s2)
 {
-	int		i;
+	int				c;
+	int				n1;
+	int				n2;
 
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
+	c = 0;
+	while (s1[c] != '\0' || s2[c] != '\0')
+	{
+		if (s1[c] != s2[c])
+		{
+			n1 = s1[c];
+			n2 = s2[c];
+			if (n1 > n2 || n1 < n2)
+				return (n1 - n2);
+		}
+		if (s1[c] == s2[c])
+			c++;
+	}
+	return (0);
 }
