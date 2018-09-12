@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 22:06:24 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/08 19:25:17 by allopez          ###   ########.fr       */
+/*   Updated: 2018/09/12 17:05:11 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,9 @@ char	*ft_concat_params(int argc, char **argv)
 	}
 	str[len - 1] = '\0';
 	return (str);
+}
+
+int		main(int ac, char **av)
+{
+	printf("%s", ft_concat_params(ac, av));
 }
