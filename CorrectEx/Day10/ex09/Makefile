@@ -6,13 +6,13 @@
 #    By: allopez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 23:38:28 by allopez           #+#    #+#              #
-#    Updated: 2018/09/12 22:44:52 by allopez          ###   ########.fr        #
+#    Updated: 2018/09/13 00:25:16 by allopez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_advanced_do-op
 
-IDIR = includes
+IDIR = .
 _INC = do_op.h
 INC = $(patsubst %,$(IDIR)/%,$(_INC))\
 
@@ -24,6 +24,7 @@ _SRC =  main.c \
 		ft_putchar.c \
 		ft_putnbr.c \
 		ft_putstr.c \
+		ft_strcmp.c
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 

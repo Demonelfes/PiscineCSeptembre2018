@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_any.c                                           :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 15:54:59 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/11 16:00:58 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/11 02:10:00 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/13 00:35:57 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_any(char **tab, int(*f)(char*))
-{
-	int		i;
+#ifndef LIBFT_H
+# define LIBFT_H
 
-	i = 0;
-	while (tab[i])
-	{
-		if (f(tab[i]))
-			return (1);
-		i++;
-	}
-	return (0);
-}
+# include <unistd.h>
+
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+int		ft_strcmp(char *s1, char *s2);
+int		ft_strlen(char *str);
+void	ft_swap(int *a, int *b);
+
+#endif

@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach.c                                       :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 14:43:41 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/11 15:32:57 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/11 16:01:20 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/13 02:51:35 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int length, void(*f)(int))
+int		ft_count_if(char **tab, int (*f)(char*))
 {
 	int		i;
+	int		length;
 
 	i = 0;
-	while (i < length)
+	length = 0;
+	while (tab[i])
 	{
-		f(tab[i]);
+		if ((*f)(tab[i]))
+			length++;
 		i++;
 	}
+	return (length);
 }
-

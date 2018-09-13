@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_opp.h                                           :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/12 22:34:20 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/13 00:19:04 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/11 15:34:34 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/13 02:50:23 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_OPP_H
-# define FT_OPP_H
+#include <stdlib.h>
 
-t_opp g_opptab[] =
+int		*ft_map(int *tab, int length, int (*f)(int))
 {
-	{"bite", &ft_add},
-	{"chatte", &ft_sub},
-	{"*", &ft_mul},
-	{"/", &ft_div},
-	{"%", &ft_mod},
-	{"", &ft_usage}
-};
+	int		i;
+	int		*tab_ret;
 
-#endif
+	i = 0;
+	if (!(tab_ret = (int*)malloc(sizeof(int) * length)))
+		return (NULL);
+	while (i < length)
+	{
+		tab_ret[i] = (*f)(tab[i]);
+		i++;
+	}
+	return (tab_ret);
+}

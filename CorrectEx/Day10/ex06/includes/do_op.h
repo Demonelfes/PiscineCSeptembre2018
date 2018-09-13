@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_opp.h                                           :+:      :+:    :+:   */
+/*   do_op.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/12 22:34:20 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/12 22:48:38 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/12 11:05:34 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/13 00:38:31 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_OPP_H
-# define FT_OPP_H
-t_opp g_opptab[] =
-{
-	{"+", &ft_add},
-	{"-", &ft_sub},
-	{"*", &ft_mul},
-	{"/", &ft_div},
-	{"%", &ft_mod},
-	{"", &ft_usage}
-};
+#ifndef DO_OP_H
+# define DO_OP_H
+
+# include <unistd.h>
+
+void	ft_putchar(char c);
+void	ft_putnbr(int nb);
+int		ft_putstr(char *str);
+int		ft_atoi(char *str);
+int		ft_add(int nbr, int nbr2);
+int		ft_sub(int nbr, int nbr2);
+int		ft_mul(int nbr, int nbr2);
+int		ft_div(int nbr, int nbr2);
+int		ft_mod(int nbr, int nbr2);
+
 #endif

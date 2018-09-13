@@ -6,14 +6,13 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:19:27 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/12 22:30:41 by allopez          ###   ########.fr       */
+/*   Updated: 2018/09/13 01:37:20 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <stdlib.h>
 
-void  ft_swap(char **tab, int j, int i, int swap)
+void	ft_swap(char **tab, int j, int i, int swap)
 {
 	tab[swap] = tab[j];
 	tab[j] = tab[i];
@@ -21,7 +20,7 @@ void  ft_swap(char **tab, int j, int i, int swap)
 	tab[swap] = NULL;
 }
 
-int    ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(char *s1, char *s2)
 {
 	int i;
 
@@ -31,11 +30,11 @@ int    ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-void  ft_sort_wordtab(char **tab)
+void	ft_sort_wordtab(char **tab)
 {
-	int    i;
-	int    j;
-	int    swap;
+	int		i;
+	int		j;
+	int		swap;
 
 	i = 0;
 	j = 0;
@@ -56,13 +55,12 @@ void  ft_sort_wordtab(char **tab)
 	}
 }
 
-
-void  ft_advanced_sort_wordtab(char **tab, int (*cmp)(char *, char *))
+void	ft_advanced_sort_wordtab(char **tab, int (*cmp)(char *, char *))
 {
-	int    i;
-	int    j;
-	int    size;
-	char  *tmp;
+	int		i;
+	int		j;
+	int		size;
+	char	*tmp;
 
 	size = 0;
 	while (tab[size])

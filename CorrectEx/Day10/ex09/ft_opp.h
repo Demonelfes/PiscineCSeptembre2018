@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_opp.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 02:10:00 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/11 11:48:38 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/12 22:34:20 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/13 00:21:17 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_OPP_H
+# define FT_OPP_H
 
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-int		ft_strcmp(char *s1, char *s2);
-int		ft_strlen(char *str);
-void	ft_swap(int *a, int *b);
+t_opp g_opptab[] =
+{
+	{"+", &ft_add},
+	{"-", &ft_sub},
+	{"*", &ft_mul},
+	{"/", &ft_div},
+	{"%", &ft_mod},
+	{"", &ft_usage}
+};
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 22:31:38 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/13 00:18:13 by allopez          ###   ########.fr       */
+/*   Updated: 2018/09/13 01:42:36 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,10 @@ int		find_op(char *operand)
 
 int		main(int ac, char **av)
 {
-	int		i;
 	int		nbr;
 	int		nbr2;
 	int		op;
- 
+
 	if (ac != 4)
 		return (0);
 	nbr = ft_atoi(av[1]);
