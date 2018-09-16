@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_list.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 11:50:15 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/13 15:06:35 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 22:30:15 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 22:30:17 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "eval_expr.h"
 
-void	ft_print_list(t_list *list)
+int		ft_atoi(char *str)
 {
-	if (list)
-		printf("%d", list->data);
-	if (list->next)
-		ft_print_list(list->next);
-}
+	int		nb;
+	int		sign;
 
-int		main(void)
-{
-	t_list	*list;
-
-	list = NULL;
-
-	list = ft_create_elem (15);
-	ft_list_push_back(&list, 42);
-	ft_list_push_back(&list, 10);
-	ft_print_list(list);
+	nb = 0;
+	sign = 1;
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		sign *= (*str == '-' ? -1 : 1);
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		nb *= 10;
+		nb += *str - '0';
+		str++;
+	}
+	return (sign * nb);
 }

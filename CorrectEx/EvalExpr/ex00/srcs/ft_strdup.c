@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_back.c                                :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 11:53:22 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/13 15:19:19 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 22:30:44 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 22:30:45 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "eval_expr.h"
 
-void	ft_list_push_back(t_list **begin_list, void *data)
+char	*ft_strdup(char *src)
 {
-	if (*begin_list)
+	char	*dest;
+	int		i;
+
+	if (!src)
+		return (NULL);
+	if (!(dest = (char *)malloc((ft_strlen(src) + 1) * sizeof(char))))
+		return (NULL);
+	i = 0;
+	while (src[i])
 	{
-		if (((*begin_list)->next))
-			ft_list_push_back(&((*begin_list)->next), data);
-		else
-			((*begin_list)->next) = ft_create_elem(data);
+		dest[i] = src[i];
+		i++;
 	}
-	else
-		(*begin_list) = ft_create_elem(data);
+	dest[i] = '\0';
+	return (dest);
 }

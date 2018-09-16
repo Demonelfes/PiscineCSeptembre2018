@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 11:16:36 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/13 15:07:34 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 22:30:58 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 22:30:59 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include "eval_expr.h"
 
-# include <stdlib.h>
-
-typedef struct	s_list
+int		ft_add(int nb1, int nb2)
 {
-	struct		s_list *next;
-	void		*data;
-}				t_list;
+	return (nb1 + nb2);
+}
 
-t_list	*ft_create_elem(void *data);
+int		ft_sub(int nb1, int nb2)
+{
+	return (nb1 - nb2);
+}
 
-#endif
+int		ft_mul(int nb1, int nb2)
+{
+	return (nb1 * nb2);
+}
+
+int		ft_div(int nb1, int nb2)
+{
+	return (nb1 / nb2);
+}
+
+int		ft_mod(int nb1, int nb2)
+{
+	return (nb1 % nb2);
+}

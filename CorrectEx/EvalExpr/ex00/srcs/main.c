@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 11:16:36 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/13 15:07:34 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 22:30:54 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 22:30:55 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include "eval_expr.h"
 
-# include <stdlib.h>
-
-typedef struct	s_list
+int		eval_expr(char *str)
 {
-	struct		s_list *next;
-	void		*data;
-}				t_list;
+	char	**infix;
+	char	**polish;
+	int		res;
 
-t_list	*ft_create_elem(void *data);
+	if (!str[0])
+		return (0);
+	infix = parse_str(str);
+	if (find_size(infix) <= 1)
+		return (ft_atoi(infix[0]));
+	else
+	{
+		polish = parse_polish(infix);
+		res = calc_polish(polish);
+	}
+	return (res);
+}
 
-#endif
+int		main(int ac, char **av)
+{
+	if (ac > 1)
+	{
+		ft_putnbr(eval_expr(av[1]));
+		ft_putchar('\n');
+	}
+	return (0);
+}

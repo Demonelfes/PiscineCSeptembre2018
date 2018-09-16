@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 11:16:36 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/13 15:07:34 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 22:30:35 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 22:30:36 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include "eval_expr.h"
 
-# include <stdlib.h>
-
-typedef struct	s_list
+void	ft_putnbr(int nb)
 {
-	struct		s_list *next;
-	void		*data;
-}				t_list;
-
-t_list	*ft_create_elem(void *data);
-
-#endif
+	if (nb == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		nb = 147483648;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+		ft_putchar(nb + '0');
+}

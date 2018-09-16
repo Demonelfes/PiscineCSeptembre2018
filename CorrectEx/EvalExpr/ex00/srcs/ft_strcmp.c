@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 15:38:44 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/13 15:46:18 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 22:30:39 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 22:30:41 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "eval_expr.h"
 
-int		ft_list_size(t_list *begin_list)
+int		ft_strcmp(char *s1, char *s2)
 {
-	if (begin_list)
-		return (1 + ft_list_size(begin_list->next));
-	else
-		return (0);
+	int		i;
 
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
