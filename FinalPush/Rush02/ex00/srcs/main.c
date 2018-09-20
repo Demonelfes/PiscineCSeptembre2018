@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 14:26:11 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 16:12:44 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "colle2.h"
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+char	*read_input(void)
+{
+	int		r;
+	char	buf[BUF_SIZE + 1];
+	char	*str;
+
+	if (!(str = (char*)malloc(sizeof(char))))
+		return (NULL);
+	str[0] = '\0';
+	while ((r = read(0, buf, BUF_SIZE)))
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
+		buf[r] = '\0';
+		str = ft_strfakecat(str, buf);
+		str = ft_strfakecat(str, "\0");
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	return (str);
+}
+
+int		main(void)
+{
+	char	*input;
+
+	input = read_input();
+	rush_comp(input);
+	return (0);
 }

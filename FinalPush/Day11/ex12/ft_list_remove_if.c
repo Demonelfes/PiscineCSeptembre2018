@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/14 11:26:53 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/17 17:04:10 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "ft_list.h"
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+{
+	t_list	*list_free;
+
+	if (*begin_list)
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
+		if ((*cmp)((*begin_list)->data, data_ref) == 0)
+		{
+			list_free = *begin_list;
+			*begin_list = (*begin_list)->next;
+			free(list_free);
+			ft_list_remove_if(begin_list, data_ref, cmp);
+		}
+		else
+			ft_list_remove_if(&(*begin_list)->next, data_ref, cmp);
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
 }

@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/08/28 00:05:50 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/12 13:19:00 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "do_op.h"
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
+		ft_putchar('-');
+		ft_putchar('2');
+		nb = 147483648;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+		ft_putchar(nb + '0');
 }

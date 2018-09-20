@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 22:30:54 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 22:30:55 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "eval_expr.h"
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
-	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
-	}
-	if (count != 0 && count2 != 0)
+int		eval_expr(char *str)
+{
+	char	**infix;
+	char	**polish;
+	int		res;
+
+	if (!str[0])
 		return (0);
-	return (1);
+	infix = parse_str(str);
+	if (find_size(infix) <= 1)
+		return (ft_atoi(infix[0]));
+	else
+	{
+		polish = parse_polish(infix);
+		res = calc_polish(polish);
+	}
+	return (res);
+}
+
+int		main(int ac, char **av)
+{
+	if (ac > 1)
+	{
+		ft_putnbr(eval_expr(av[1]));
+		ft_putchar('\n');
+	}
+	return (0);
 }

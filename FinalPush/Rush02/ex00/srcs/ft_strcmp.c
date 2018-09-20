@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/02 00:23:40 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 14:19:56 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "colle2.h"
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+int		ft_strcmp(char *s1, char *s2)
+{
+	int				c;
+	int				n1;
+	int				n2;
+
+	c = 0;
+	while (s1[c] != '\0' || s2[c] != '\0')
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
+		if (s1[c] != s2[c])
+		{
+			n1 = s1[c];
+			n2 = s2[c];
+			if (n1 > n2 || n1 < n2)
+				return (n1 - n2);
+		}
+		if (s1[c] == s2[c])
+			c++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	return (0);
 }

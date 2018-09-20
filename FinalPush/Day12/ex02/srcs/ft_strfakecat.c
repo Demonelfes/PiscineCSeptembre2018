@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strfakecat.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 14:21:56 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/18 17:47:45 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "ft_tail.h"
 
+char	*ft_strfakecat(char *s1, char *s2)
+{
+	char	*res;
+	int		len1;
+	int		len2;
+	int		i;
+
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	if (!(res = (char *)malloc(sizeof(char) * (len1 + len2 + 1))))
+		return (NULL);
 	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+	while (i < len1)
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
+		res[i] = s1[i];
 		i++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	i = 0;
+	while (i < len2)
+	{
+		res[len1 + i] = s2[i];
+		i++;
+	}
+	res[len1 + i] = '\0';
+	return (res);
 }

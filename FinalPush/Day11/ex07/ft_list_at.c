@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_list_at.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/13 17:22:06 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/13 20:34:50 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "ft_list.h"
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
-	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
-	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+{
+	if (!begin_list)
+		return (NULL);
+	else if (nbr == 0)
+		return (begin_list);
+	else if (begin_list->next)
+		return (ft_list_at(begin_list->next, nbr - 1));
+	else
+		return (NULL);
 }

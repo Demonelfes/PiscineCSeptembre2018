@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/08/29 09:55:45 by allopez           #+#    #+#             */
+/*   Updated: 2018/08/30 02:43:16 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
+int		ft_iterative_factorial(int nb)
 {
-	int		i;
-	int		count;
-	int		count2;
+	int		x;
+	int		res;
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
-	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
-	}
-	if (count != 0 && count2 != 0)
+	x = 1;
+	res = 1;
+	if (nb == 0 || nb == 1)
+		return (1);
+	if (nb < 0 || nb > 12)
 		return (0);
-	return (1);
+	while (x <= nb)
+	{
+		res = res * x;
+		x++;
+	}
+	return (res);
 }

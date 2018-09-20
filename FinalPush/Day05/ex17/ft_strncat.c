@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/02 15:19:14 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/05 11:07:58 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
+char	*ft_strncat(char *dest, char *src, int nb)
 {
 	int		i;
-	int		count;
-	int		count2;
+	int		j;
 
 	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
-	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
+	while (dest[i])
 		i++;
+	j = 0;
+	while (j < nb && src[j])
+	{
+		dest[i + j] = src[j];
+		j++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	dest[i + j] = 0;
+	return (dest);
 }

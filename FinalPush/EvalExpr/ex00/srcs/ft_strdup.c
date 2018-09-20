@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/16 22:30:44 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/16 22:30:45 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "eval_expr.h"
 
+char	*ft_strdup(char *src)
+{
+	char	*dest;
+	int		i;
+
+	if (!src)
+		return (NULL);
+	if (!(dest = (char *)malloc((ft_strlen(src) + 1) * sizeof(char))))
+		return (NULL);
 	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+	while (src[i])
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
+		dest[i] = src[i];
 		i++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	dest[i] = '\0';
+	return (dest);
 }

@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_cat.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/18 00:05:42 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/19 21:32:47 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#ifndef FT_CAT_H
+# define FT_CAT_H
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
-	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
-	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
-}
+# define BUF_SIZE 2048
+
+# include <unistd.h>
+# include <fcntl.h>
+# include <errno.h>
+
+void	ft_putchar(char c);
+void	ft_putchar_error(char c);
+void	ft_putstr(char *str);
+void	ft_putstr_error(char *str);
+int		ft_strcmp(char *s1, char*s2);
+
+#endif

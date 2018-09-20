@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_stock_par.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/10 17:00:41 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/10 20:59:26 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#ifndef FT_STOCK_PAR_H
+# define FT_STOCK_PAR_H
+# include <stdlib.h>
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
-	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
-	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
-}
+typedef struct		s_stock_par
+{
+	int				size_param;
+	char			*str;
+	char			*copy;
+	char			**tab;
+}					t_stock_par;
+char				**ft_split_whitespaces(char *str);
+void				ft_show_tab(struct s_stock_par *par);
+void				ft_putchar(char c);
+struct s_stock_par	*ft_param_to_tab(int ac, char **av);
+
+#endif

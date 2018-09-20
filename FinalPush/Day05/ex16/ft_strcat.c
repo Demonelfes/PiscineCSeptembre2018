@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/02 14:54:29 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/02 15:18:47 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
+int		ft_strlen(char *str)
 {
 	int		i;
-	int		count;
-	int		count2;
 
 	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strcat(char *dest, char *src)
+{
+	int		i;
+	char	*cat_dest;
+
+	i = 0;
+	cat_dest = dest + ft_strlen(dest);
+	while (src[i])
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
+		cat_dest[i] = src[i];
 		i++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	cat_dest[i] = '\0';
+	return (dest);
 }

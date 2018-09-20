@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/03 19:01:33 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/06 01:15:43 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
+int					ft_strlen(char *str)
 {
-	int		i;
-	int		count;
-	int		count2;
+	int				i;
 
 	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
-	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
+	while (str[i])
 		i++;
+	return (i);
+}
+
+unsigned int		ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
+
+	i = 0;
+	k = ft_strlen(dest);
+	while (dest[i])
+		i++;
+	if (size <= k)
+		return (size + ft_strlen(src));
+	j = 0;
+	while (i + j + 1 < size)
+	{
+		dest[i + j] = src[j];
+		j++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	dest[i + j] = '\0';
+	return (k + (ft_strlen(src)));
 }

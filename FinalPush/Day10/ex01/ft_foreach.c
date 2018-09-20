@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/11 14:43:41 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/13 02:50:58 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int		i;
-	int		count;
-	int		count2;
 
 	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+	while (i < length)
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
+		(*f)(tab[i]);
 		i++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
 }

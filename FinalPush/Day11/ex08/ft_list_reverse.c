@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/13 17:34:22 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/14 11:02:20 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "ft_list.h"
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+void	ft_list_reverse(t_list **begin_list)
+{
+	t_list *tmp1;
+	t_list *tmp2;
+	t_list *tmp3;
+
+	if (!(*begin_list) || !(*begin_list)->next)
+		return ;
+	tmp1 = (*begin_list);
+	tmp2 = tmp1->next;
+	tmp3 = tmp2->next;
+	tmp1->next = NULL;
+	tmp2->next = tmp1;
+	while (tmp3)
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
+		tmp1 = tmp2;
+		tmp2 = tmp3;
+		tmp3 = tmp3->next;
+		tmp2->next = tmp1;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	(*begin_list) = tmp2;
 }

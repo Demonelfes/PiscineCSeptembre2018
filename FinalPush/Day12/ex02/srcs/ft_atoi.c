@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/08/28 17:07:30 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/18 12:07:24 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include "ft_tail.h"
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+int		ft_atoi(char *str)
+{
+	int		x;
+	int		neg;
+	int		result;
+
+	x = 0;
+	neg = 0;
+	result = 0;
+	while ((str[x] >= 9 && str[x] <= 13) || str[x] == ' ')
+		x++;
+	if (str[x] == '-')
+		neg = 1;
+	if (str[x] == '+' || str[x] == '-')
+		x++;
+	while (str[x] >= '0' && str[x] <= '9')
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
+		result = (str[x] - '0' + result * 10);
+		x++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	return (neg == 1 ? -result : result);
 }

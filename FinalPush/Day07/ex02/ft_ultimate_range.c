@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/04 18:31:26 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/07 01:51:10 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#include <stdlib.h>
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+int		ft_ultimate_range(int **range, int min, int max)
+{
+	int		*tab;
+	int		i;
+
+	if (min >= max)
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
-	}
-	if (count != 0 && count2 != 0)
+		*range = NULL;
 		return (0);
-	return (1);
+	}
+	if (!(tab = (int*)malloc(sizeof(int) * (max - min))))
+		return (0);
+	i = 0;
+	while (min < max)
+	{
+		tab[i] = min;
+		i++;
+		min++;
+	}
+	*range = tab;
+	return (i);
 }

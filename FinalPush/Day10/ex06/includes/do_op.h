@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   do_op.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/12 11:05:34 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/13 00:38:31 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
-{
-	int		i;
-	int		count;
-	int		count2;
+#ifndef DO_OP_H
+# define DO_OP_H
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
-	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
-	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
-}
+# include <unistd.h>
+
+void	ft_putchar(char c);
+void	ft_putnbr(int nb);
+int		ft_putstr(char *str);
+int		ft_atoi(char *str);
+int		ft_add(int nbr, int nbr2);
+int		ft_sub(int nbr, int nbr2);
+int		ft_mul(int nbr, int nbr2);
+int		ft_div(int nbr, int nbr2);
+int		ft_mod(int nbr, int nbr2);
+
+#endif

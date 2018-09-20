@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/01 11:28:33 by allopez           #+#    #+#             */
+/*   Updated: 2018/09/01 11:28:34 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
+char	*ft_strcpy(char *dest, char *src)
 {
-	int		i;
-	int		count;
-	int		count2;
+	int		x;
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+	x = 0;
+	while (src[x])
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
+		dest[x] = src[x];
+		x++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	dest[x] = '\0';
+	return (dest);
 }

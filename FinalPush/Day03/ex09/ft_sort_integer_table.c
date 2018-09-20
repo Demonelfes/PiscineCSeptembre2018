@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/08/28 22:50:55 by allopez           #+#    #+#             */
+/*   Updated: 2018/08/29 01:02:01 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
+void	ft_swap(int *a, int *b)
 {
-	int		i;
-	int		count;
-	int		count2;
+	int c;
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+	c = *a;
+	*a = *b;
+	*b = c;
+}
+
+void	ft_sort_integer_table(int *tab, int size)
+{
+	int		x;
+	int		z;
+	int		is_sorted;
+
+	x = size - 1;
+	while (x > 0)
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
+		is_sorted = 1;
+		z = 0;
+		while (z < x)
+		{
+			if (tab[z + 1] < tab[z])
+			{
+				ft_swap(&tab[z + 1], &tab[z]);
+				is_sorted = 0;
+			}
+			z++;
+		}
+		if (is_sorted)
+			break ;
+		x--;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
 }

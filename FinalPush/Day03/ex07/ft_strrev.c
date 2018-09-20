@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 16:06:33 by allopez           #+#    #+#             */
-/*   Updated: 2018/09/18 14:17:45 by allopez          ###   ########.fr       */
+/*   Created: 2018/08/28 10:12:10 by allopez           #+#    #+#             */
+/*   Updated: 2018/08/29 01:10:21 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int, int))
+char	*ft_strrev(char *str)
 {
-	int		i;
-	int		count;
-	int		count2;
+	int		len;
+	int		x;
+	int		tmp;
 
-	i = 0;
-	count = 0;
-	count2 = 0;
-	while (i < length - 1)
+	x = 0;
+	len = 0;
+	while (str[len])
 	{
-		if ((*f)(tab[i], tab[i + 1]) > 0)
-			count++;
-		if ((*f)(tab[i], tab[i + 1]) < 0)
-			count2++;
-		i++;
+		len++;
 	}
-	if (count != 0 && count2 != 0)
-		return (0);
-	return (1);
+	while (x < len - 1)
+	{
+		tmp = str[len - 1];
+		str[len - 1] = str[x];
+		str[x] = tmp;
+		len--;
+		x++;
+	}
+	return (str);
 }
