@@ -15,23 +15,23 @@
 /*
  	C'EST UNE COPIE DE STRSTR, IL Y A TOUT A FAIRE
 */
-
-char	*ft_strnstr(char *str, char *to_find)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (str[i])
+	if (!to_find[i])
+		return ((char *)str);
+	while (i < len && str[i])
 	{
 		j = 0;
-		while (to_find[j] == str[i + j])
-		{
-			if (to_find[j + 1] == '\0')
-				return (str + i);
+		while (i + j < len && str[i + j]
+				&& to_find[j] && str[i + j] == to_find[j])
 			j++;
-		}
+		if (!to_find[j])
+			return ((char *)str + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
