@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 00:36:02 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/09 16:21:54 by allopez          ###   ########.fr       */
+/*   Created: 2019/04/09 16:44:09 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/09 16:58:48 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t		i;
+/*
+ 	A CHECK COMME STREQU
+ */
 
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
-		i++;
-	return (s1[i] - s2[i]);
+int		ft_strnequ(const char *s1, const char *s2, size_t n)
+{
+	return (s1 && s2 ? !ft_strncmp(s1, s2, n) : 0);
 }

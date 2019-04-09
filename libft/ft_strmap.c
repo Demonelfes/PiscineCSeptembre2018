@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 00:36:02 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/09 16:21:54 by allopez          ###   ########.fr       */
+/*   Created: 2019/04/09 14:19:19 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/09 16:03:56 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strmap(const char *s, char (*f)(char))
 {
-	size_t		i;
+	int		i;
+	char	*map;
+
+	if (!(s && f) || !(map = ft_strnew(ft_strlen(s))))
+		return (NULL);
 
 	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
+	while (s[i])
+	{
+		map[i] = (*f)(s[i]);
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	return (map);
 }

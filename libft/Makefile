@@ -6,7 +6,7 @@
 #    By: allopez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 23:38:28 by allopez           #+#    #+#              #
-#    Updated: 2019/04/08 16:46:00 by allopez          ###   ########.fr        #
+#    Updated: 2019/04/09 17:35:24 by allopez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,17 @@ _SRC =  ft_atoi.c \
 		ft_isprint.c \
 		ft_toupper.c \
 		ft_tolower.c \
-
+		ft_memalloc.c \
+		ft_memdel.c \
+		ft_strnew.c \
+		ft_strdel.c \
+		ft_strclr.c \
+		ft_striter.c \
+		ft_striteri.c \
+		ft_strmap.c \
+		ft_strmapi.c \
+		ft_strequ.c \
+		ft_strnequ.c \
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 

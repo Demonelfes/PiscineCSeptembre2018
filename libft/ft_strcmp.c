@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/31 00:42:03 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/08 14:08:06 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/02 00:23:40 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/09 16:26:14 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,10 @@
 
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	int				c;
-	int				n1;
-	int				n2;
+	int		i;
 
-	c = 0;
-	while (s1[c] != '\0' || s2[c] != '\0')
-	{
-		if (s1[c] != s2[c])
-		{
-			n1 = s1[c];
-			n2 = s2[c];
-			if (n1 > n2 || n1 < n2)
-				return (n1 - n2);
-		}
-		if (s1[c] == s2[c])
-			c++;
-	}
-	return (0);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }

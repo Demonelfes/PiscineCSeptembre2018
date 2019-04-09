@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 00:36:02 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/09 16:21:54 by allopez          ###   ########.fr       */
+/*   Created: 2019/04/09 17:41:27 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/09 17:45:56 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int       main()
 {
-	size_t		i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
-		i++;
-	return (s1[i] - s2[i]);
+	        const char  s1[] = "Salut";
+	         const char  s2[] = "Salut";
+		 
+		       printf("%d", ft_strequ(s1, s2));
 }

@@ -6,15 +6,12 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 15:17:48 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/08 15:29:45 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/09 13:36:44 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
- 	C'EST UNE COPIE DE STRSTR, IL Y A TOUT A FAIRE
-*/
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
