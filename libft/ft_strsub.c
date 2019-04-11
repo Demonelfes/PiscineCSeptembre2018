@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/08 16:35:37 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/11 17:24:02 by allopez          ###   ########.fr       */
+/*   Created: 2019/04/11 13:01:57 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/11 15:19:09 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+char	*ft_strsub(const char *s, unsigned int start, size_t len)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ? 1 : 0);
+	char	*str;
+
+	if (!s || !(str = ft_strnew(len)))
+		return (NULL);
+
+	ft_strncpy(str, s + start, len);
+	return (str);
 }

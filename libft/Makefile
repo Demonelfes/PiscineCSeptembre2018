@@ -6,7 +6,7 @@
 #    By: allopez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 23:38:28 by allopez           #+#    #+#              #
-#    Updated: 2019/04/09 17:35:24 by allopez          ###   ########.fr        #
+#    Updated: 2019/04/11 17:15:15 by allopez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,15 @@ _SRC =  ft_atoi.c \
 		ft_strmapi.c \
 		ft_strequ.c \
 		ft_strnequ.c \
+		ft_strsub.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_putendl.c \
+		ft_putnbr.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 

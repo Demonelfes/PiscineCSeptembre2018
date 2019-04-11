@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 17:41:27 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/09 17:45:56 by allopez          ###   ########.fr       */
+/*   Created: 2019/04/11 13:33:17 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/11 13:33:39 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int       main()
+void	ft_putnbr(int nb)
 {
-	        const char  s1[] = "Salut";
-	         const char  s2[] = "Salut";
-		 
-		       printf("%d", ft_strequ(s1, s2));
+	if (nb == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		nb = 147483648;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+		ft_putchar(nb + '0');
 }
