@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 13:25:14 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/11 15:17:54 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/12 14:31:01 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void ft_putendl(const char *s)
 {
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
+	if (s)
+	{
+		write(1, s, ft_strlen(s));
+		write(1, "\n", 1);
+	}
 }

@@ -6,15 +6,11 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 16:44:09 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/09 16:58:48 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/12 14:30:08 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
- 	A CHECK COMME STREQU
- */
 
 int		ft_strnequ(const char *s1, const char *s2, size_t n)
 {

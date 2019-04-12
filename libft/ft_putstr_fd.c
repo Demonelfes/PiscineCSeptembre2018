@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 13:37:12 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/11 13:37:45 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/12 14:31:56 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putstr_fd(const char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	if (s && fd)
+		write(fd, s, ft_strlen(s));
 }

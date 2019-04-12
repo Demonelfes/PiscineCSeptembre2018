@@ -6,7 +6,7 @@
 #    By: allopez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 23:38:28 by allopez           #+#    #+#              #
-#    Updated: 2019/04/11 17:15:15 by allopez          ###   ########.fr        #
+#    Updated: 2019/04/12 17:40:31 by allopez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,10 @@ _SRC =  ft_atoi.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_strsplit.c \
+		ft_itoa.c \
+		ft_memcpy.c \
+		ft_memccpy.c \
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 

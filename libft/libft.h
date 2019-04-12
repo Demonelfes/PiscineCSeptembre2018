@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 14:00:02 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/11 17:14:40 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/12 17:40:28 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_putendl_fd(const char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 char	*ft_strcat(char *dest, const char *src);
 char	*ft_strncat(char *dest, const char *src, size_t nb);
 char	*ft_strcpy(char *dest, const char *src);
@@ -46,6 +48,8 @@ char 	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	*ft_strsub(const char *s, unsigned int start, size_t len);
 char 	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s);
+char	*ft_itoa(int n);
+char	**ft_strsplit(char const *s, char c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

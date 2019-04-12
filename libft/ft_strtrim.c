@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 13:12:57 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/11 17:14:37 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/12 16:48:59 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,18 @@ char	*ft_strtrim(const char *s)
 
 	if (!s)
 		return (NULL);
-
 	start = 0;
 	while (s[start] == '\n' || s[start] == '\t' || s[start] == ' ')
 		start++;
 	len = (ft_strlen(s));
-	while (s[len] == '\n' || s[len] == '\t' || s[len] == ' ')
+	while (s[len - 1] == '\n' || s[len - 1] == '\t' || s[len - 1] == ' ')
 		len--;
-	end_sp = len;
-
-	new = ft_strsub(s, start, (ft_strlen(s) - end_sp));
+	end_sp = len - start;
+	if (start == ft_strlen(s))
+	{
+		new = ft_strnew(0);
+		return (new);
+	}
+	new = ft_strsub(s, start, end_sp);
 	return (new);
-}
-
-int		main(int ac, char **av)
-{
-	(void)ac;
-
-	printf("%s", ft_strtrim(av[1]));
 }
