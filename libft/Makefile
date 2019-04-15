@@ -6,7 +6,7 @@
 #    By: allopez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 23:38:28 by allopez           #+#    #+#              #
-#    Updated: 2019/04/12 17:40:31 by allopez          ###   ########.fr        #
+#    Updated: 2019/04/15 17:41:30 by allopez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,11 @@ _SRC =  ft_atoi.c \
 		ft_memcmp.c \
 		ft_strchr.c \
 		ft_strrchr.c \
+		ft_lstnew.c \
+		ft_lstdelone.c \
+		ft_lstdel.c \
+		ft_lstadd.c \
+		ft_lstiter.c \
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 

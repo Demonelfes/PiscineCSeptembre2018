@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/15 14:37:38 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/15 14:37:39 by allopez          ###   ########.fr       */
+/*   Created: 2019/04/15 14:38:49 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/15 17:12:37 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	size_t	i;
+	t_list *new;
 
-	if (n == 0)
-		return (0);
-	i = 0;
-	while (i < n - 1 && ((unsigned char *)s1)[i] == ((unsigned char *)s2)[i])
-		i++;
-	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+	if (!(new = (t_list *)malloc(sizeof (t_list))))
+		return (NULL);
+	if (content)
+	{
+		new->content = ft_memalloc(content_size);
+		new->content = ft_memcpy(new->content, content, content_size);
+		new->content_size = content_size;
+	}
+	else
+	{
+		new->content = NULL;
+		new->content_size = 0;
+	}
+	new->next = NULL;
+	return (new);
 }
