@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 13:12:57 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/12 16:48:59 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/17 13:53:14 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_strtrim(const char *s)
 {
 	unsigned int	start;
-	size_t		len;
-	size_t		end_sp;
-	char	*new;
+	size_t			len;
+	size_t			end_sp;
+	char			*new;
 
 	if (!s)
 		return (NULL);

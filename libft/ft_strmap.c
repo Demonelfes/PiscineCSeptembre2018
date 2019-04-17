@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 14:19:19 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/09 16:03:56 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/17 13:50:07 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ char	*ft_strmap(const char *s, char (*f)(char))
 
 	if (!(s && f) || !(map = ft_strnew(ft_strlen(s))))
 		return (NULL);
-
 	i = 0;
 	while (s[i])
 	{
