@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 16:56:23 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/18 12:50:33 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/18 13:22:36 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ char			**ft_strsplit(const char *s, char c)
 	if (!s || !(dest = (char **)malloc(sizeof(char *) * (ct(s, c) + 1))))
 		return (0);
 	i = 0;
-	while (!(j = 0) && s[i])
+	j = 0;
+	while (s[i])
 	{
 		k = 0;
 		while (s[i] == c)
