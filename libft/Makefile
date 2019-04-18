@@ -77,6 +77,11 @@ _SRC =  ft_atoi.c \
 		ft_lstmap.c \
 		ft_memset.c \
 		ft_strchr_index.c \
+		ft_create_elem.c \
+		ft_lst_pushback.c \
+		ft_lst_pushfront.c \
+		ft_lst_reverse.c \
+		ft_lst_sort.c \
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 
