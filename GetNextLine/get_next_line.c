@@ -43,7 +43,7 @@ int		get_next_line(const int fd, char **line)
 	int		i;
 
 	i = 0;
-	if (sr[i])
+	if (str[i])
 	{
 		while (str[i] != '\n' && str[i])
 			i++;
