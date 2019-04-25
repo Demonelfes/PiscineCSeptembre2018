@@ -6,13 +6,13 @@
 #    By: allopez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 23:38:28 by allopez           #+#    #+#              #
-#    Updated: 2019/04/18 13:57:01 by allopez          ###   ########.fr        #
+#    Updated: 2019/04/24 14:07:01 by allopez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-IDIR = includes
+IDIR = .
 _INC = libft.h
 INC = $(patsubst %,$(IDIR)/%,$(_INC))
 

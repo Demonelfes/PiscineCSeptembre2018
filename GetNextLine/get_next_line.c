@@ -6,13 +6,13 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:35:27 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/18 18:05:56 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/24 14:40:21 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		check_error(int fd, char **str, char **line)
+int			check_error(int fd, char **str, char **line)
 {
 	if (fd == -1 || line == NULL)
 		return (-1);
@@ -24,7 +24,7 @@ int		check_error(int fd, char **str, char **line)
 	return (0);
 }
 
-char	*readline(char *str, int fd)
+char		*readline(char *str, int fd)
 {
 	char	buff[BUFF_SIZE + 1];
 	int		ret;
@@ -37,18 +37,23 @@ char	*readline(char *str, int fd)
 	return (str);
 }
 
-int		get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
 	static char		*str;
-	int		i;
+	int				i;
 
+	if (*str)
+		ft_strcpy(*line, str);
+	if (check_error(fd, &str, line) == -1)
+		return (-1);
 	i = 0;
+	str = readline(str, fd);
 	if (str[i])
 	{
 		while (str[i] != '\n' && str[i])
 			i++;
 		if (i == 0)
-			(*line) = ft_strdup("");
+			(*line) = ft_strnew(1);
 		else
 		{
 			(*line) = ft_strsub(str, 0, i);
@@ -57,6 +62,6 @@ int		get_next_line(const int fd, char **line)
 		return (1);
 	}
 	else
-		(*line) = ft_strdup("");
+		(*line) = ft_strnew(1);
 	return (0);
 }
