@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:35:27 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/25 15:17:06 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/26 13:42:09 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int			check_error(int fd, char **str, char **line)
 {
-	if (fd == -1 || line == NULL)
-		return (-1);
 	if (!*str)
 	{
 		if (!(*str = (char *)malloc(sizeof(char) * (BUFF_SIZE + 1))))
 			return (-1);
 	}
-	return (0);
+	return (fd == -1 || line == NULL ? -1 : 0);
 }
 
 char		*readline(char *str, int fd)
@@ -42,10 +40,10 @@ int			get_next_line(const int fd, char **line)
 	static char		*str;
 	int				i;
 
-	if (*str)
-		ft_strcpy(*line, str);
 	if (check_error(fd, &str, line) == -1)
 		return (-1);
+	if (*str)
+		ft_strcpy(*line, str);
 	i = 0;
 	str = readline(str, fd);
 	if (str[i])
