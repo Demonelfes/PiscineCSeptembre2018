@@ -6,13 +6,12 @@ int     main(int ac, char **av)
 	int ret;
 	char    *line;
 
-	fd = open("test.txt", O_RDONLY);
+	fd = open("test2.txt", O_RDONLY);
 
 	while (1)
 		while ((ret = get_next_line(fd, &line)) > 0)
 		{
 			ft_putstr(line);
-			free(line);
 		}
 	return (0);
 }

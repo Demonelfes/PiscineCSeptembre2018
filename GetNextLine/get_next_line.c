@@ -45,16 +45,16 @@ int			get_next_line(const int fd, char **line)
 	{
 		while (str[i] != '\n' && str[i])
 			i++;
-		if (i == 0)
-			ft_bzero((*line), 1);
-		else
-		{
+//		if (i == 0)
+//			ft_bzero((*line), 1);
+//		else
+//		{
 			(*line) = ft_strsub(str, 0, i);
 			str = &str[i + 1];
-		}
+//		}
 		return (1);
 	}
-	else
-		ft_bzero((*line), 1);
+//	else
+//		ft_bzero((*line), 1);
 	return (fd - 1 || line == NULL ? -1 : 0);
 }
