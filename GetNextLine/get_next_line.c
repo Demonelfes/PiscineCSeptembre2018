@@ -46,7 +46,7 @@ int			get_next_line(const int fd, char **line)
 		while (str[i] != '\n' && str[i])
 			i++;
 		if (i == 0)
-			(*line) = ft_strnew(1);
+			ft_bzero((*line), 1);
 		else
 		{
 			(*line) = ft_strsub(str, 0, i);
@@ -55,6 +55,6 @@ int			get_next_line(const int fd, char **line)
 		return (1);
 	}
 	else
-		(*line) = ft_strnew(1);
+		ft_bzero((*line), 1);
 	return (fd - 1 || line == NULL ? -1 : 0);
 }
