@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:35:27 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/29 12:41:13 by allopez          ###   ########.fr       */
+/*   Updated: 2019/04/29 17:44:09 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,7 @@ char		*readline(char *str, int fd)
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
 	{
 		buff[ret] = '\0';
-	//	if (str == NULL)
-	//		str = ft_strnew(1);
 		str = ft_strjoin(str, buff);
-	//	free(str);
-	//	str = tmp;
-	//	if (str[0] == '\0')
-	//		ft_strdel(&str);
 	}
 	return (str);
 }
@@ -53,12 +47,7 @@ int			get_next_line(const int fd, char **line)
 		else
 		{
 			(*line) = ft_strsub(str, 0, i);
-		//	tmp = ft_strdup((*line));
-		//	free((*line));
-		//	(*line) = tmp;
 			str = &str[i + 1];
-		//	if ((*line)[0] == '\0')
-		//		ft_strdel(&(*line));
 		}
 		return (1);
 	}
@@ -66,8 +55,3 @@ int			get_next_line(const int fd, char **line)
 		ft_bzero((*line), 1);
 	return (fd - 1 || line == NULL ? -1 : 0);
 }
-
-// LE FREE LINE FAIT PASSER LES LEAKS DE 6 A 2. (En fait non, meme sans le free line les leaks sont a 2 bizzarement.)
-// GROS PROBLEME DE MALLOC SI LE TEXT EST TROP LONG. IL FAUT FIXE CA.
-//dans cette version, ca ne marche donc pas si le text est trop long, et ca leaks 2 fois.
-

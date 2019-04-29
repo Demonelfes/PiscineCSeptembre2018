@@ -8,10 +8,12 @@ int     main(int ac, char **av)
 
 	fd = open("test2.txt", O_RDONLY);
 
-	while (1)
+//	while (1)
+//	{
 		while ((ret = get_next_line(fd, &line)) > 0)
 		{
 			ft_putstr(line);
 		}
+//	}
 	return (0);
 }
