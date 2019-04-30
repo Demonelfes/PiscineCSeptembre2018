@@ -46,8 +46,11 @@ int			get_next_line(const int fd, char **line)
 	//		ft_bzero((*line), 1);
 		//else
 	//	{
+		if (str[i] == '\n')
+		{
 			(*line) = ft_strsub(str, 0, i);
 			str = &str[i + 1];
+		}
 	//	}
 		return (1);
 	}
