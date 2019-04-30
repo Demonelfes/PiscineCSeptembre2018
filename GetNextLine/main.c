@@ -13,6 +13,7 @@ int     main(int ac, char **av)
 		while ((ret = get_next_line(fd, &line)) > 0)
 		{
 			ft_putstr(line);
+			free(line);
 		}
 //	}
 	return (0);
