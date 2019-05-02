@@ -38,7 +38,7 @@ int			get_next_line(const int fd, char **line)
 	if (*str)
 		ft_strcpy(*line, str);
 	str = readline(str, fd);
-	if (str[i] && !(i = 0))
+	if (!(i = 0) && str[i])
 	{
 		while (str[i] != '\n' && str[i])
 			i++;
@@ -48,7 +48,7 @@ int			get_next_line(const int fd, char **line)
 	//	{
 		if (str[i] == '\n')
 		{
-			(*line) = ft_strsub(str, 0, i);
+			*line = ft_strsub(str, 0, i);
 			str = &str[i + 1];
 		}
 	//	}
