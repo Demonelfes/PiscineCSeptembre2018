@@ -6,15 +6,16 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:35:27 by allopez           #+#    #+#             */
-/*   Updated: 2019/05/02 18:23:02 by allopez          ###   ########.fr       */
+/*   Updated: 2019/05/03 13:04:33 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-int     ft_chrandsub(char **save, char **line, int fd, int ret)
+
+int		ft_chrandsub(char **save, char **line, int fd, int ret)
 {
-	int     len;
-	char    *tmp;
+	int				len;
+	char			*tmp;
 
 	len = 0;
 	while (save[fd][len] != '\n' && save[fd][len] != '\0')
@@ -38,12 +39,12 @@ int     ft_chrandsub(char **save, char **line, int fd, int ret)
 	return (1);
 }
 
-int     get_next_line(const int fd, char **line)
+int		get_next_line(const int fd, char **line)
 {
-	static char     *save[OPEN_MAX];
-	char            buff[BUFF_SIZE + 1];
-	char            *tmp;
-	int             ret;
+	static char		*save[OPEN_MAX];
+	char			buff[BUFF_SIZE + 1];
+	char			*tmp;
+	int				ret;
 
 	if (fd < 0)
 		return (-1);
@@ -60,7 +61,6 @@ int     get_next_line(const int fd, char **line)
 	}
 	if (ret < 0)
 		return (-1);
-	else if (ret == 0 && (save[fd] == NULL || save[fd][0] == '\0'))
-		return (0);
-	return (ft_chrandsub(save, line, fd, ret));
+	return (ret == 0 && (save[fd] == NULL || save[fd][0] == '\0')
+			? 0 : ft_chrandsub(save, line, fd, ret));
 }

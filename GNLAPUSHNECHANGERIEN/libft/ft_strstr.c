@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 14:57:36 by allopez           #+#    #+#             */
-/*   Updated: 2019/05/02 18:07:03 by allopez          ###   ########.fr       */
+/*   Created: 2018/09/01 11:28:46 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/08 15:06:34 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
+#include "libft.h"
 
-# include "Libft/libft.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <limits.h>
+char	*ft_strstr(const char *str, const char *to_find)
+{
+	int		i;
+	int		j;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	if (!to_find[i])
+		return ((char *)str);
+	while (str[i])
+	{
+		j = 0;
+		while (str[i + j] && to_find[j] && str[i + j] == to_find[j])
+			j++;
+		if (!to_find[j])
+			return ((char *)str + i);
+		i++;
+	}
+	return (NULL);
+}

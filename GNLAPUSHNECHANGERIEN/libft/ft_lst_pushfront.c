@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lst_pushfront.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 14:57:36 by allopez           #+#    #+#             */
-/*   Updated: 2019/05/02 18:07:03 by allopez          ###   ########.fr       */
+/*   Created: 2019/04/18 12:56:33 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/18 12:56:36 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
+#include "libft.h"
 
-# include "Libft/libft.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <limits.h>
+void	ft_lst_pushfront(t_list **begin_list, void *data)
+{
+	t_list	*link;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	link = ft_create_elem(data);
+	if ((*begin_list))
+		link->next = *begin_list;
+	else
+		*begin_list = ft_create_elem(data);
+	*begin_list = link;
+}

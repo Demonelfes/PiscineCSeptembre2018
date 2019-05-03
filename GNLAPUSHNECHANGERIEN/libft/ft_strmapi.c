@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 14:57:36 by allopez           #+#    #+#             */
-/*   Updated: 2019/05/02 18:07:03 by allopez          ###   ########.fr       */
+/*   Created: 2019/04/09 14:32:07 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/17 13:57:11 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
+#include "libft.h"
 
-# include "Libft/libft.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <limits.h>
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+{
+	unsigned int	i;
+	char			*map;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	if (!(s && f) || !(map = ft_strnew(ft_strlen(s))))
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		map[i] = (*f)(i, s[i]);
+		i++;
+	}
+	return (map);
+}

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lst_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 14:57:36 by allopez           #+#    #+#             */
-/*   Updated: 2019/05/02 18:07:03 by allopez          ###   ########.fr       */
+/*   Created: 2019/04/18 12:56:41 by allopez           #+#    #+#             */
+/*   Updated: 2019/04/18 12:56:46 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
+#include "libft.h"
 
-# include "Libft/libft.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <limits.h>
+void	ft_lst_reverse(t_list **begin_list)
+{
+	t_list *tmp1;
+	t_list *tmp2;
+	t_list *tmp3;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	if (!(*begin_list) || !(*begin_list)->next)
+		return ;
+	tmp1 = (*begin_list);
+	tmp2 = tmp1->next;
+	tmp3 = tmp2->next;
+	tmp1->next = NULL;
+	tmp2->next = tmp1;
+	while (tmp3)
+	{
+		tmp1 = tmp2;
+		tmp2 = tmp3;
+		tmp3 = tmp3->next;
+		tmp2->next = tmp1;
+	}
+	(*begin_list) = tmp2;
+}

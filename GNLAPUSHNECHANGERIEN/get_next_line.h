@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:57:36 by allopez           #+#    #+#             */
-/*   Updated: 2019/05/02 18:07:03 by allopez          ###   ########.fr       */
+/*   Updated: 2019/05/03 16:46:09 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 # define BUFF_SIZE 32
 
-# include "Libft/libft.h"
+# include "libft/includes/libft.h"
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
