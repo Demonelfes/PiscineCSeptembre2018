@@ -1,4 +1,6 @@
-int		check_hash(char *map)
+#include "../includes/fillit.h"
+
+int		overall_check(char *map)
 {
 	int		i;
 	int		hash;
@@ -26,7 +28,17 @@ int		check_hash(char *map)
 	return (1);
 }
 
-int		check_line(char *map)
+int		check_line(char *map, t_tetri *map)
 {
-	
+	int		i;
+	int		character;
+
+	while (map->piece[i])
+	{
+		if (map->piece[i])
+		{
+			tpm = map->piece[i];
+			i++;
+		}
+	}
 }

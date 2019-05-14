@@ -7,6 +7,7 @@ INC = $(patsubst %,$(IDIR)/%,$(_INC))\
 SDIR = srcs
 
 _SRC =  main.c \
+		check.c \
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 

@@ -1,6 +1,6 @@
 #ifndef FILLIT_H
 # define FILLIT_H
-# include "libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -10,4 +10,5 @@ typedef struct	s_tetri
 	char	letter;
 }				t_tetri;
 
-int		check_hash(char *map);
+int		overall_check(char *map);
+int		check_line(char *map);
