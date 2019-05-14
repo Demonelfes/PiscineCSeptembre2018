@@ -1,1 +1,20 @@
-gcc -g gnl_fonctionnel.c main.c  Libft/ft_strchr.c Libft/ft_putstr.c Libft/ft_strcpy.c Libft/ft_strdel.c Libft/ft_strjoin.c Libft/ft_strnew.c Libft/ft_strsub.c Libft/ft_bzero.c Libft/ft_strlen.c Libft/ft_strncpy.c Libft/ft_strdup.c
+#include "get_next_line.h"
+
+int     main(int ac, char **av)
+{
+	int     fd;
+	int ret;
+	char    *line;
+
+	fd = open("test2.txt", O_RDONLY);
+
+//	while (1)
+//	{
+		while ((ret = get_next_line(fd, &line)) > 0)
+		{
+			ft_putstr(line);
+			free(line);
+		}
+//	}
+	return (0);
+}
