@@ -12,59 +12,74 @@
 
 #include "libft.h"
 
-static int		len(const char *s, char c)
+static int		ft_count_words(char const *s, char c)
 {
-	int	len;
+	int i;
+	int words;
+	int hasword;
 
-	len = 0;
-	while (s[len] && s[len] != c)
-		len++;
-	return (len);
-}
-
-static int		ct(const char *s, char c)
-{
-	int	len;
-	int	i;
-
-	len = 0;
 	i = 0;
+	words = 0;
+	hasword = 0;
+	while (s[i] == c && s[i])
+		i++;
 	while (s[i])
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] && s[i] != c)
-			len++;
-		while (s[i] && s[i] != c)
+		if (s[i] != c && s[i])
+			hasword = 1;
+		if (s[i] == c)
+		{
+			while (s[i] == c && s[i])
+				i++;
+			if (s[i])
+				words++;
+		}
+		else
 			i++;
 	}
-	return (len);
+	return (words + hasword);
 }
 
-char			**ft_split(const char *s, char c)
+static	char	*ft_alloc_word(char const *s, char c)
 {
-	char	**dest;
-	int		i;
-	int		j;
-	int		k;
+	int		size;
+	char	*tab;
 
-	if (!s || !(dest = (char **)malloc(sizeof(char *) * (ct(s, c) + 1))))
-		return (0);
-	i = 0;
-	while (!(j = 0) && s[i])
+	size = 0;
+	tab = 0;
+	while (s[size] && s[size] != c)
+		size++;
+	if (!(tab = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	ft_strlcpy(tab, s, size + 1);
+	return (tab);
+}
+
+char			**ft_split(char const *s, char c)
+{
+	int		count;
+	int		words;
+	char	**tab;
+
+	count = -1;
+	if (!s)
+		return (NULL);
+	words = ft_count_words(s, c);
+	if (!(tab = malloc(sizeof(char *) * (words + 1))))
+		return (NULL);
+	while (++count < words)
 	{
-		k = 0;
-		while (s[i] == c)
-			i++;
-		if (s[i] && s[i] != c)
+		while (s[0] == c)
+			s++;
+		if (!(tab[count] = ft_alloc_word(s, c)))
 		{
-			if (!(dest[j] = (char *)malloc(sizeof(char) * (len(&s[i], c) + 1))))
-				return (0);
-			while (s[i] && s[i] != c)
-				dest[j][k++] = s[i++];
-			dest[j++][k] = '\0';
+			while (count > 0)
+				free(tab[count--]);
+			free(tab);
+			return (NULL);
 		}
+		s += ft_strlen(tab[count]);
 	}
-	dest[j] = NULL;
-	return (dest);
+	tab[count] = 0;
+	return (tab);
 }

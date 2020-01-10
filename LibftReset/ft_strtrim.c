@@ -12,22 +12,48 @@
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s1, char const *set)
+static	int	ft_can_trim(char c, char const *set)
 {
-	unsigned int	start;
-	size_t			len;
+	int		count;
 
-	if (s1 == NULL || set == NULL)
+	count = -1;
+	while (set[++count])
+		if (set[count] == c)
+			return (1);
+	return (0);
+}
+
+static	int	ft_get_size(char const *s1, char const *set)
+{
+	int		count;
+	int		size;
+
+	count = 0;
+	size = ft_strlen(s1);
+	while (ft_can_trim(s1[size - count - 1], set))
+		count++;
+	return (size - count);
+}
+
+char		*ft_strtrim(char const *s1, char const *set)
+{
+	int		count;
+	int		size;
+	char	*tab;
+
+	count = 0;
+	size = 0;
+	if (!s1)
+		return (0);
+	if (!set)
+		return (ft_strdup(s1));
+	while (ft_can_trim(s1[count], set))
+		count++;
+	if (count == (int)ft_strlen(s1))
+		return (ft_strdup(""));
+	size = ft_get_size(s1 + count, set) + 1;
+	if (!(tab = (char *)malloc((size) * sizeof(char))))
 		return (NULL);
-	start = 0;
-	while (s1[start] && ft_strchr(set, s1[start]) != NULL)
-		start++;
-	len = ft_strlen(s1);
-	if (len != 0)
-	{
-		while (s1[start + len - 1] 
-				&& ft_strchr(set, s1[start + len - 1]) != NULL)
-			len--;
-	}
-	return (ft_substr(s1, start, len));
+	ft_strlcpy(tab, s1 + count, size);
+	return (tab);
 }
