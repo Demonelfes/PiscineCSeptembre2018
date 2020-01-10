@@ -6,9 +6,11 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 16:10:47 by allopez           #+#    #+#             */
-/*   Updated: 2020/01/10 16:13:40 by allopez          ###   ########.fr       */
+/*   Updated: 2020/01/10 16:47:35 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
