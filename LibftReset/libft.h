@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 14:00:02 by allopez           #+#    #+#             */
-/*   Updated: 2020/01/10 16:49:37 by allopez          ###   ########.fr       */
+/*   Updated: 2020/01/11 14:03:21 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,13 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(void*));
-void				ft_lst_pushback(t_list **begin_list, void *data);
-void				ft_lst_pushfront(t_list **begin_list, void *data);
 void				ft_lst_reverse(t_list **begin_list);
 void				ft_lst_sort(t_list **begin_list, int (*cmp)());
-void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
+void				*ft_memset(void *b, int c, size_t len);
 void				*ft_calloc(size_t nitems, size_t size);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strncat(char *dest, const char *src, size_t nb);
@@ -92,6 +90,5 @@ size_t				ft_strlen(const char *str);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 t_list				*ft_lstnew(void *content);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-t_list				*ft_create_elem(void *data);
 t_list				*ft_lstlast(t_list *lst);
 #endif

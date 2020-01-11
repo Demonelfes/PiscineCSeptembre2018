@@ -6,7 +6,7 @@
 #    By: allopez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 23:38:28 by allopez           #+#    #+#              #
-#    Updated: 2020/01/10 16:29:34 by allopez          ###   ########.fr        #
+#    Updated: 2020/01/11 14:03:34 by allopez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ _SRC =  ft_atoi.c \
 		ft_memmove.c \
 		ft_memchr.c \
 		ft_memcmp.c \
+		ft_memset.c \
 		ft_strchr.c \
 		ft_strrchr.c \
 		ft_lstnew.c \
@@ -76,11 +77,7 @@ _SRC =  ft_atoi.c \
 		ft_lstadd_front.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		ft_memset.c \
 		ft_strchr_index.c \
-		ft_create_elem.c \
-		ft_lst_pushback.c \
-		ft_lst_pushfront.c \
 		ft_lst_reverse.c \
 		ft_lst_sort.c \
 		ft_lstsize.c \
