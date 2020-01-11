@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 17:07:46 by allopez           #+#    #+#             */
-/*   Updated: 2019/04/12 17:17:38 by allopez          ###   ########.fr       */
+/*   Created: 2020/01/11 16:04:21 by allopez           #+#    #+#             */
+/*   Updated: 2020/01/11 16:04:22 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t		i;
 
 	i = 0;
+
+	if (!dst && !src)
+		return (NULL);
 	while (i < n)
 	{
 		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];

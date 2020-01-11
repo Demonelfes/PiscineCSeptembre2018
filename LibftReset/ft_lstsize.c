@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/10 16:05:21 by allopez           #+#    #+#             */
-/*   Updated: 2020/01/10 16:47:19 by allopez          ###   ########.fr       */
+/*   Created: 2020/01/11 16:03:59 by allopez           #+#    #+#             */
+/*   Updated: 2020/01/11 16:04:01 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 int		ft_lstsize(t_list *lst)
 {
 	int		i;
-	t_list	*tmp;
 
-	tmp = lst;
 	i = 0;
-	while (tmp)
+	while (lst)
 	{
-		tmp = tmp->next;
+		lst = lst->next;
 		i++;
 	}
 	return (i);
