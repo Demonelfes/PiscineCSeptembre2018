@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 14:32:07 by allopez           #+#    #+#             */
-/*   Updated: 2020/01/11 16:05:31 by allopez          ###   ########.fr       */
+/*   Updated: 2020/01/13 15:49:06 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	char			*map;
+	unsigned int	count;
+	char			*tab;
 
-	if (!(s && f) || !(map = ft_strnew(ft_strlen(s))))
+	count = 0;
+	if (!s || !f)
 		return (NULL);
-	i = 0;
-	while (s[i])
+	if (!(tab = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
+	while (s[count])
 	{
-		map[i] = (*f)(i, s[i]);
-		i++;
+		tab[count] = f(count, s[count]);
+		count++;
 	}
-	return (map);
+	tab[count] = '\0';
+	return (tab);
 }

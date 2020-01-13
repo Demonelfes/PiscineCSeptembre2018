@@ -6,7 +6,7 @@
 #    By: allopez <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 23:38:28 by allopez           #+#    #+#              #
-#    Updated: 2020/01/11 16:16:48 by allopez          ###   ########.fr        #
+#    Updated: 2020/01/13 15:40:33 by allopez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,26 +15,6 @@ NAME = libft.a
 IDIR = includes
 _INC = libft.h
 INC = $(patsubst %,$(IDIR)/%,$(_INC))
-BONUS = ft_putchar_bonus.c \
-	   	ft_putstr_bonus.c \
-		ft_strcat_bonus.c \
-		ft_strncat_bonus.c \
-		ft_strcpy_bonus.c \
-		ft_strncpy_bonus.c \
-		ft_strcmp_bonus.c \
-		ft_strstr_bonus.c \
-		ft_memalloc_bonus.c \
-		ft_memdel_bonus.c \
-		ft_strnew_bonus.c \
-		ft_strdel_bonus.c \
-		ft_strclr_bonus.c \
-		ft_striter_bonus.c \
-		ft_striteri_bonus.c \
-		ft_strmap_bonus.c \
-		ft_strequ_bonus.c \
-		ft_strnequ_bonus.c \
-		ft_putendl_bonus.c \
-		ft_putnbr_bonus.c \
 
 SDIR = .
 
@@ -77,8 +57,6 @@ _SRC =  ft_atoi.c \
 		ft_lstadd_front.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		ft_lst_reverse.c \
-		ft_lst_sort.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
 		ft_lstadd_back.c \

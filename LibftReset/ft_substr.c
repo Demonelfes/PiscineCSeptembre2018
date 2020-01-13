@@ -6,7 +6,7 @@
 /*   By: allopez <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/11 16:06:02 by allopez           #+#    #+#             */
-/*   Updated: 2020/01/11 16:06:03 by allopez          ###   ########.fr       */
+/*   Updated: 2020/01/13 15:47:53 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,25 @@
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	char	*str;
+	size_t	count;
+	size_t	size;
+	char	*tab;
 
-	if (!s || !(str = ft_strnew(len)))
+	count = 0;
+	if (!s)
 		return (NULL);
 	if (ft_strlen(s) < start)
 		return (ft_strdup(""));
-	ft_strncpy(str, s + start, len);
-	return (str);
+	size = ft_strlen(s + start);
+	if (size < len)
+		len = size;
+	if (!(tab = (char *)malloc((len + 1) * sizeof(char))))
+		return (NULL);
+	while (count < len)
+	{
+		tab[count] = s[start + count];
+		count++;
+	}
+	tab[count] = '\0';
+	return (tab);
 }
