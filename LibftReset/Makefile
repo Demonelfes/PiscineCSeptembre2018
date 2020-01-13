@@ -15,23 +15,35 @@ NAME = libft.a
 IDIR = includes
 _INC = libft.h
 INC = $(patsubst %,$(IDIR)/%,$(_INC))
+BONUS = ft_putchar_bonus.c \
+	   	ft_putstr_bonus.c \
+		ft_strcat_bonus.c \
+		ft_strncat_bonus.c \
+		ft_strcpy_bonus.c \
+		ft_strncpy_bonus.c \
+		ft_strcmp_bonus.c \
+		ft_strstr_bonus.c \
+		ft_memalloc_bonus.c \
+		ft_memdel_bonus.c \
+		ft_strnew_bonus.c \
+		ft_strdel_bonus.c \
+		ft_strclr_bonus.c \
+		ft_striter_bonus.c \
+		ft_striteri_bonus.c \
+		ft_strmap_bonus.c \
+		ft_strequ_bonus.c \
+		ft_strnequ_bonus.c \
+		ft_putendl_bonus.c \
+		ft_putnbr_bonus.c \
 
 SDIR = .
 
 _SRC =  ft_atoi.c \
-		ft_putchar.c \
-	   	ft_putstr.c \
 		ft_strlen.c \
-		ft_strcat.c \
-		ft_strncat.c \
 		ft_strlcat.c \
-		ft_strcpy.c \
-		ft_strncpy.c \
 		ft_strlcpy.c \
-		ft_strcmp.c \
 		ft_strncmp.c \
 		ft_strdup.c \
-		ft_strstr.c \
 		ft_strnstr.c \
 		ft_bzero.c \
 		ft_isalpha.c \
@@ -41,22 +53,10 @@ _SRC =  ft_atoi.c \
 		ft_isprint.c \
 		ft_toupper.c \
 		ft_tolower.c \
-		ft_memalloc.c \
-		ft_memdel.c \
-		ft_strnew.c \
-		ft_strdel.c \
-		ft_strclr.c \
-		ft_striter.c \
-		ft_striteri.c \
-		ft_strmap.c \
 		ft_strmapi.c \
-		ft_strequ.c \
-		ft_strnequ.c \
 		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
-		ft_putendl.c \
-		ft_putnbr.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
@@ -77,7 +77,6 @@ _SRC =  ft_atoi.c \
 		ft_lstadd_front.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		ft_strchr_index.c \
 		ft_lst_reverse.c \
 		ft_lst_sort.c \
 		ft_lstsize.c \
