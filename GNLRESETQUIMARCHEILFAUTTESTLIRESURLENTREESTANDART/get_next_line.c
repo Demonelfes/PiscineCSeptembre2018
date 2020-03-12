@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopez <alopez@student.42.fr>              +#+  +:+       +#+        */
+/*   By: allopez <allopez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 20:09:16 by keulee            #+#    #+#             */
-/*   Updated: 2020/03/12 12:42:32 by alopez           ###   ########.fr       */
+/*   Updated: 2020/03/12 16:58:01 by allopez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "get_next_line.h"
 
-//function that fill the line with substr(malloc), strdup(malloc)
-//
+
 int			ft_line(char *str, char **line, int ret)
 {
 	int		i;
 
 	i = 0;
-	if (str != NULL) // protect
+	if (str != NULL) 
 	{
 		while (str[i] != '\0' && str[i] != '\n')
 			i++;
 	}
-	if (str != NULL && str[i] == '\n') // general case
+	if (str != NULL && str[i] == '\n') 
 		*line = ft_substr(str, 0, i);
-	if (ret == 0 && str == NULL) // empty line after \n
+	if (ret == 0 && str == NULL) 
 	{
 		*line = ft_strdup("");
 		return (0);
 	}
-	if (ret == 0 && str[i] == '\0') // last line 
+	if (ret == 0 && str[i] == '\0') 
 	{
 		*line = ft_strdup(str);
 		return (0);
@@ -39,8 +39,7 @@ int			ft_line(char *str, char **line, int ret)
 	return (1);
 }
 
-// function that put the string after \n in str
-//
+
 char		*ft_rest(char *str)
 {
 	int		i;
@@ -63,9 +62,7 @@ char		*ft_rest(char *str)
 	return (str);
 }
 
-// function with read.
-// with this function fine the one whole line with \n.
-//
+
 char		*ft_read_line(char *str, int fd, int *ret)
 {
 	char	buf[BUFFER_SIZE + 1];
@@ -88,8 +85,7 @@ char		*ft_read_line(char *str, int fd, int *ret)
 	return (str);
 }
 
-// function get_next_line.
-//
+
 int			get_next_line(int fd, char **line)
 {
 	int			ret;

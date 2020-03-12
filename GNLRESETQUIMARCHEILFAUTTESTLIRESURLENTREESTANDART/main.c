@@ -6,9 +6,9 @@ int     main(int ac, char **av)
 	int ret;
 	char    *line;
 
-	fd = open(1, O_RDONLY);
-
-//	while (1)
+	fd = open("text.txt", O_RDONLY);
+	
+	while (1)
 		while ((ret = get_next_line(fd, &line)) > 0)
 		{
 			ft_putstr(line);
