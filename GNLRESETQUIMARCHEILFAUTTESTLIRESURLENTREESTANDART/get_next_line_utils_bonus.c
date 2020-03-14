@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alopez <alopez@student.42.fr>              +#+  +:+       +#+        */
+/*   By: allopez <allopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/20 20:09:58 by keulee            #+#    #+#             */
-/*   Updated: 2020/03/14 14:39:03 by alopez           ###   ########.fr       */
+/*   Created: 2020/03/14 14:21:07 by alopez            #+#    #+#             */
+/*   Updated: 2020/03/14 14:21:48 by alopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
+#include "get_next_line_bonus.h"
 
 size_t		ft_strlen(const char *str)
 {
@@ -23,11 +22,6 @@ size_t		ft_strlen(const char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
 }
 
 char		*ft_strdup(const char *src)
